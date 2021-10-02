@@ -1,0 +1,91 @@
+.body{
+    background-color: antiquewhite;
+    height: 100%;
+}
+
+.container-fluid {
+    height: 100%;
+}
+
+#header {
+    background-color: rgb(253, 134, 78);
+    height: 100%;
+    width:100%; 
+    margin-bottom: 20px;
+    border: white;
+    border-style: solid;
+    border-width: 5px;
+}
+
+#color1 {
+    background-color: aquamarine;
+    height: 100%;
+    width:100%;
+    border: white;
+    border-style: solid;
+    border-width: 5px;
+}
+
+#color2 {
+    background-color: pink;
+    height: 100%;
+    width:100%;
+    border: white;
+    border-style: solid;
+    border-width: 5px;
+}
+
+#color3 {
+    background-color: rgb(190, 162, 223);
+    height: 100%;
+    width:100%;
+    border: white;
+    border-style: solid;
+    border-width: 5px;
+}
+
+#color4 {
+    background-color: yellow;
+    height: 100%;
+    width:100%;
+    border: white;
+    border-style: solid;
+    border-width: 5px;
+}
+
+.game{
+height: 150px;
+}
+
+.board {
+height: 150px;
+}
+
+#scoreBoard {
+    background-color: aquamarine;
+    height: 100%;
+    width:100%;
+    border: white;
+    border-style: solid;
+    border-width: 5px;  
+}
+
+#highScores {
+    background-color: aquamarine;
+    height: 100%;
+    width: 100%;
+    border: white;
+    border-style: solid;
+    border-width: 5px;
+}
+
+#footer {
+    background-color: rgb(253, 134, 78);
+    height: 100%;
+    width:100%;
+    margin-top: 20px;
+    border: white;
+    border-style: solid;
+    border-width: 5px;
+}
+
