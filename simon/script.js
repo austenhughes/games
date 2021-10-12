@@ -9,7 +9,7 @@ const highScores = document.getElementById("highScoresList");
 
 let computer = "";
 let player = "";
-let level = 1;
+let level = 0;
 
 function signal(next) {
     setTimeout(function(){
@@ -33,14 +33,14 @@ function signal(next) {
         default:
             console.log("start")
       }
-    }, 500);
+    }, 750);
   }
 
 colorOne.addEventListener("click", function() {
     colorOne.style.backgroundColor='rgb(208, 252, 237)';
     setTimeout(function(){ colorOne.style.backgroundColor='aquamarine' }, 500);
     player = player + "1";
-    console.log(player);
+    // console.log(player);
     checkEach();
   });
 
@@ -48,7 +48,7 @@ colorTwo.addEventListener("click", function() {
     colorTwo.style.backgroundColor='rgb(248, 224, 228)';
     setTimeout(function(){ colorTwo.style.backgroundColor='pink' }, 500);
     player = player + "2";
-    console.log(player);
+    // console.log(player);
     checkEach();
   });
 
@@ -64,7 +64,7 @@ colorFour.addEventListener("click", function() {
     colorFour.style.backgroundColor='rgb(253, 253, 183)';
     setTimeout(function(){ colorFour.style.backgroundColor='yellow' }, 500);
     player = player + "4";
-    console.log(player);
+    // console.log(player);
     checkEach();
   });
 
@@ -76,7 +76,7 @@ function computerMove() {
         max = Math.floor(max);
         let next = Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
         computer = computer + next;
-        console.log(computer);
+        // console.log(computer);
         player = "";
         let computerArray = computer.split("");
         runLights(computerArray);
@@ -90,7 +90,7 @@ function runLights(computerArray) {
                 function(){
                     signal(light);  
                 }
-            , i * 250);
+            , i * 1000);
         });
 }
 
@@ -110,15 +110,18 @@ function endGame (){
     window.alert("game over ... play again?")
     player = "";
     computer = "";
-    level = 1;
+    level = 0;
     computerMove();
 }
 
 function levelUp() {
        setTimeout(function(){
         if (computer.length === player.length) {
+            level = level+1;
+            // console.log(level);
+            score.innerHTML = level;
             computerMove();
            }
-       }, 500);
+       }, 1000);
       }
 
