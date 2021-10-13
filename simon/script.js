@@ -5,8 +5,12 @@ const colorFour = document.getElementById("color4");
 
 const score = document.getElementById("score");
 const lives = document.getElementById("lives");
-const highScores = document.getElementById("highScoresList");
-const highScoresNames = document.getElementById("highScoresListNames");
+const highScores1 = document.getElementById("highScoresList1");
+const highScores2 = document.getElementById("highScoresList2");
+const highScores3 = document.getElementById("highScoresList3");
+const highScoresNames1 = document.getElementById("highScoresListNames1");
+const highScoresNames2 = document.getElementById("highScoresListNames2");
+const highScoresNames3 = document.getElementById("highScoresListNames3");
 
 let computer = "";
 let player = "";
@@ -72,9 +76,15 @@ colorFour.addEventListener("click", function() {
 computerMove();
 function computerMove() {
     let topScores = localStorage.getItem("highScores")
-    highScores.innerHTML = topScores;
+    let topScoresArray = topScores.split(" ");
+    highScores1.innerHTML = topScoresArray[0];
+    highScores2.innerHTML = topScoresArray[1];
+    highScores3.innerHTML = topScoresArray[2];
     let name = localStorage.getItem("name")
-    highScoresNames.innerHTML = name;
+    let nameArray = name.split(" ");
+    highScoresNames1.innerHTML = nameArray[0];
+    highScoresNames2.innerHTML = nameArray[1];
+    highScoresNames3.innerHTML = nameArray[2];
     
     getRandomInt(1,5);
     function getRandomInt(min, max) {
@@ -113,46 +123,39 @@ function checkEach() {
 }
 
 function endGame (){
-
     let highScoresStored = localStorage.getItem("highScores")
     let highScoresNamesStored = localStorage.getItem("name")
-    console.log(highScoresStored);
-    console.log(highScoresNamesStored);
 
     let highScoresArray = highScoresStored.split(" ");
     let highScoresNameArray = highScoresNamesStored.split(" ");
-    console.log(highScoresArray);
-    console.log(highScoresNameArray);
 
-        // if (level>highScoresStored){
-            if (level>highScoresArray[0]){
+    for (let index = 0; index < highScoresArray.length; index++) {
+        const element = highScoresArray[index];
+        if (highScoresArray.length >= 3){
+            if (level>element){
+                let name = window.prompt("high score! enter your name here :");
+                highScoresArray[index] = level;
+                highScoresNameArray[index] = name;
+                let savingHighScoreString = highScoresArray.join(" ");
+                let savingHighScoreNamesString = highScoresNameArray.join(" "); 
+                localStorage.setItem("highScores", savingHighScoreString);
+                localStorage.setItem("name", savingHighScoreNamesString);
+                score.innerHTML = 0;
+                break;
+                }
+        }else if(highScoresArray.length<=2){
+            if (level>element){
             let name = window.prompt("high score! enter your name here :");
-            
-            // let levelString = level.toString;
             let newHighScores = highScoresStored + " " + level;
-            
             let highScoreNameList = (highScoresNamesStored + " " + name);
-            
             localStorage.setItem("highScores", newHighScores);
             localStorage.setItem("name", highScoreNameList);
-
-            let newHighScoresList = localStorage.getItem("highScores");
-            let newNameList = localStorage.getItem("name")
-
-            console.log(newHighScoresList);
-            console.log(newNameList);
-
-            // needed for once through
-            // localStorage.setItem("highScores", level);
-            // localStorage.setItem("name", name);
-            
-            // console.log("New high score " + level);
-            highScores.innerHTML = level;
-            highScoresNames.innerHTML = name;
             score.innerHTML = 0;
-        }
-  
-
+            }
+        } else {
+            console.log("nothing yet");
+        }        
+    }
     window.alert("game over ... play again?")
     player = "";
     computer = "";
