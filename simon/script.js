@@ -6,6 +6,7 @@ const colorFour = document.getElementById("color4");
 const score = document.getElementById("score");
 const lives = document.getElementById("lives");
 const highScores = document.getElementById("highScoresList");
+const highScoresNames = document.getElementById("highScoresListNames");
 
 let computer = "";
 let player = "";
@@ -56,7 +57,7 @@ colorThree.addEventListener("click", function() {
     colorThree.style.backgroundColor='rgb(233, 219, 248)';
     setTimeout(function(){ colorThree.style.backgroundColor='rgb(190, 162, 223)' }, 500);
     player = player + "3";
-    console.log(player);
+    // console.log(player);
     checkEach();
   });
 
@@ -70,6 +71,11 @@ colorFour.addEventListener("click", function() {
 
 computerMove();
 function computerMove() {
+    let topScores = localStorage.getItem("highScores")
+    highScores.innerHTML = topScores;
+    let name = localStorage.getItem("name")
+    highScoresNames.innerHTML = name;
+    
     getRandomInt(1,5);
     function getRandomInt(min, max) {
         min = Math.ceil(min);
@@ -107,6 +113,46 @@ function checkEach() {
 }
 
 function endGame (){
+
+    let highScoresStored = localStorage.getItem("highScores")
+    let highScoresNamesStored = localStorage.getItem("name")
+    console.log(highScoresStored);
+    console.log(highScoresNamesStored);
+
+    let highScoresArray = highScoresStored.split(" ");
+    let highScoresNameArray = highScoresNamesStored.split(" ");
+    console.log(highScoresArray);
+    console.log(highScoresNameArray);
+
+        // if (level>highScoresStored){
+            if (level>highScoresArray[0]){
+            let name = window.prompt("high score! enter your name here :");
+            
+            // let levelString = level.toString;
+            let newHighScores = highScoresStored + " " + level;
+            
+            let highScoreNameList = (highScoresNamesStored + " " + name);
+            
+            localStorage.setItem("highScores", newHighScores);
+            localStorage.setItem("name", highScoreNameList);
+
+            let newHighScoresList = localStorage.getItem("highScores");
+            let newNameList = localStorage.getItem("name")
+
+            console.log(newHighScoresList);
+            console.log(newNameList);
+
+            // needed for once through
+            // localStorage.setItem("highScores", level);
+            // localStorage.setItem("name", name);
+            
+            // console.log("New high score " + level);
+            highScores.innerHTML = level;
+            highScoresNames.innerHTML = name;
+            score.innerHTML = 0;
+        }
+  
+
     window.alert("game over ... play again?")
     player = "";
     computer = "";
