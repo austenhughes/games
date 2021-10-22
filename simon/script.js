@@ -87,18 +87,23 @@ colorFour.addEventListener("click", function () {
 
 computerMove();
 function computerMove() {
+
   if(localStorage.getItem("highScores") !== null){
   let topScores = localStorage.getItem("highScores");
   let topScoresArray = topScores.split(" ");
-  console.log(topScoresArray[0]);
-  console.log(topScoresArray[1]);
-  console.log(topScoresArray[2]);
+  highScores1.innerHTML = topScoresArray[0];
+  highScores2.innerHTML = topScoresArray[1];
+  highScores3.innerHTML = topScoresArray[2];
   let name = localStorage.getItem("name");
   let nameArray = name.split(" ");
   highScoresNames1.innerHTML = nameArray[0];
   highScoresNames2.innerHTML = nameArray[1];
   highScoresNames3.innerHTML = nameArray[2];
+  }else{
+    localStorage.setItem("highScores", "0 0 0");
+    localStorage.setItem("name", "NA NA NA");
   }
+
   getRandomInt(1, 5);
   function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -133,6 +138,7 @@ function checkEach() {
 }
 
 function endGame() {
+
   let highScoresStored = localStorage.getItem("highScores");
   let highScoresNamesStored = localStorage.getItem("name");
 
@@ -165,8 +171,9 @@ function endGame() {
     } else {
       console.log("nothing yet");
     }
+    
   }
-  // let name = window.prompt("high score! enter your name here :");
+  
   window.alert("game over ... play again?");
   player = "";
   computer = "";
@@ -174,8 +181,10 @@ function endGame() {
   computerMove();
 
   // for clear out
+  // let name = window.prompt("high score! enter your name here :");
   // localStorage.setItem("highScores", level);
   // localStorage.setItem("name", name);
+  // level = 0;
 }
 
 function levelUp() {
