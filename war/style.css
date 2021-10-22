@@ -1,0 +1,98 @@
+.body{
+    background-color: antiquewhite;
+    height: 100%;
+}
+
+.header{
+    background-color: rgb(253, 134, 78);
+    height: 100%;
+    width:100%; 
+    margin-bottom: 5px;
+    border: white;
+    border-style: solid;
+    border-width: 5px;
+    text-align: center;
+}
+
+.compHand{
+    background-color: aquamarine;
+   text-align: center; 
+   border-style: solid;
+   border-width: 5px;
+   border-color: white;
+   margin: auto;
+   margin-bottom: 5px;
+   height:20vh; 
+   width: 50%;
+}
+
+.compStack{
+    background-color: aquamarine;
+    text-align: center; 
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+    margin: auto;
+    margin-bottom: 5px;
+    height:20vh; 
+    width: 50%;
+}
+
+.compPlay{
+   background-color: rgb(190, 162, 223);
+   text-align: center;
+   border-style: solid;
+   border-width: 5px;
+   border-color: white; 
+   margin: auto;
+   margin-bottom: 5px;
+   height:20vh;
+   width: 25%;
+}
+
+.playerHand{
+    background-color: yellow;
+    text-align: center; 
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+    margin: auto;
+    margin-bottom: 5px;
+    height:20vh; 
+    width: 50%;
+ }
+ 
+.playerStack{
+     background-color: yellow;
+     text-align: center; 
+     border-style: solid;
+     border-width: 5px;
+     border-color: white;
+     margin: auto;
+     margin-bottom: 5px;
+     height:20vh; 
+     width: 50%;
+}
+ 
+.playerPlay{
+    background-color: pink;
+    text-align: center; 
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+    margin: auto;
+    margin-bottom: 5px;
+    height:20vh; 
+    width: 25%;
+}
+
+.footer{
+    background-color: rgb(253, 134, 78);
+    height: 100%;
+    width:100%;
+    margin-top: 20px;
+    border: white;
+    border-style: solid;
+    border-width: 5px;
+    text-align: center;
+}

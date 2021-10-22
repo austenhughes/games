@@ -90,11 +90,8 @@ function computerMove() {
   if(localStorage.getItem("highScores") !== null){
   let topScores = localStorage.getItem("highScores");
   let topScoresArray = topScores.split(" ");
-  highScores1.innerHTML = topScoresArray[0];
   console.log(topScoresArray[0]);
-  highScores2.innerHTML = topScoresArray[1];
   console.log(topScoresArray[1]);
-  highScores3.innerHTML = topScoresArray[2];
   console.log(topScoresArray[2]);
   let name = localStorage.getItem("name");
   let nameArray = name.split(" ");
@@ -103,7 +100,6 @@ function computerMove() {
   highScoresNames3.innerHTML = nameArray[2];
   }
   getRandomInt(1, 5);
-  // }
   function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
