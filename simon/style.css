@@ -11,11 +11,22 @@
     background-color: rgb(253, 134, 78);
     height: 100%;
     width:100%; 
+    border: white;
+    border-style: solid;
+    border-width: 5px;
+    border-bottom-width:0px;
+    text-align: center;
+}
+
+#nav{
+    text-align: right;
+    background-color: rgb(253, 134, 78);
     margin-bottom: 20px;
     border: white;
     border-style: solid;
     border-width: 5px;
-    text-align: center;
+    border-top-width:0px;
+    margin-bottom: 20px;
 }
 
 #color1 {
