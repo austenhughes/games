@@ -3,7 +3,7 @@
     height: 100%;
 }
 
-.header {
+#header {
     background-color: rgb(253, 134, 78);
     height: 100%;
     width:100%; 
@@ -14,7 +14,7 @@
     text-align: center;
 }
 
-.nav{
+#nav{
     text-align: right;
     background-color: rgb(253, 134, 78);
     margin-bottom: 20px;
@@ -24,6 +24,7 @@
     border-top-width:0px;
     margin-bottom: 20px;
 }
+
 .compHand{
     background-color: aquamarine;
    text-align: center; 
