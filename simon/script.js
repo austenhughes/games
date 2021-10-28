@@ -49,6 +49,65 @@ function signal(next) {
   }, 750);
 }
 
+function playerMove(){
+  
+    colorOne.addEventListener("click", function () {
+      colorOne.style.backgroundColor = "rgb(208, 252, 237)";
+      setTimeout(function () {
+        colorOne.style.backgroundColor = "aquamarine";
+      }, 500);
+      player = player + "1";
+      checkEach();
+      // if (player.length === computer.length){
+      // buttonOff()
+      // }
+    });
+    
+    colorTwo.addEventListener("click", function () {
+      colorTwo.style.backgroundColor = "rgb(248, 224, 228)";
+      setTimeout(function () {
+        colorTwo.style.backgroundColor = "pink";
+      }, 500);
+      player = player + "2";
+      checkEach();
+      // if (player.length === computer.length){
+      // buttonOff()
+      // }
+    });
+    
+    colorThree.addEventListener("click", function () {
+      colorThree.style.backgroundColor = "rgb(233, 219, 248)";
+      setTimeout(function () {
+        colorThree.style.backgroundColor = "rgb(190, 162, 223)";
+      }, 500);
+      player = player + "3";
+      // checkEach();
+      // if (player.length === computer.length){
+      // buttonOff()
+      // }
+    });
+    
+    colorFour.addEventListener("click", function () {
+      colorFour.style.backgroundColor = "rgb(253, 253, 183)";
+      setTimeout(function () {
+        colorFour.style.backgroundColor = "yellow";
+      }, 500);
+      player = player + "4";
+      checkEach();
+      // if (player.length === computer.length){
+      // buttonOff()
+      // }
+    });
+  
+}
+
+// function buttonOff(){
+//     colorOne.removeEventListener("click", function(){});
+//     colorTwo.removeEventListener("click", function(){});
+//     colorThree.removeEventListener("click", function(){});
+//     colorFour.removeEventListener("click", function(){});
+// }
+
 colorOne.addEventListener("click", function () {
   colorOne.style.backgroundColor = "rgb(208, 252, 237)";
   setTimeout(function () {
@@ -88,6 +147,9 @@ colorFour.addEventListener("click", function () {
 computerMove();
 function computerMove() {
 
+  // for starting and stopping event listener
+  // count = 0;
+
   if(localStorage.getItem("highScores") !== null){
   let topScores = localStorage.getItem("highScores");
   let topScoresArray = topScores.split(" ");
@@ -123,7 +185,14 @@ function runLights(computerArray) {
       signal(light);
     }, i * 1000);
   });
+  // things here to start playerMove
+  // next()
 }
+
+function next(){
+  // playerMove
+  playerMove();
+};
 
 function checkEach() {
   let playerArray = player.split("");
@@ -131,6 +200,7 @@ function checkEach() {
   for (let index = 0; index < playerArray.length; index++) {
     if (computerArray[index] === playerArray[index]) {
       levelUp();
+      // maybe turn off event listeners here 
     } else {
       endGame();
     }
